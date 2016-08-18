@@ -10,8 +10,15 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
+        <!--<link rel="stylesheet" href="css/normalize.css">-->
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+        <!--[if lte IE 8]>
+            <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
+        <![endif]-->
+        <!--[if gt IE 8]><!-->
+            <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+        <!--<![endif]-->
+        <link rel="stylesheet" href="stylesheets/main.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
@@ -20,9 +27,50 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
+        <div class="layout stretch-all">
+
+            <div class="financial-alert pull-up pull-right margin-1">
+            </div>
+
+            <div class="container stretch-all pure-g">
+            
+                <div class="development-options pure-u-1 pure-u-md-1-6">
+                    <div class="bldg-type type-a" data-type="a" data-mkt="13" data-aff="2" data-gfa="12000" data-retail="450">a</div>
+
+                    <div class="bldg-type type-b" data-type="b" data-mkt="85" data-aff="15" data-gfa="105000" data-retail="3000">b</div>
+
+                    <div class="bldg-type type-c" data-type="c" data-mkt="35" data-aff="6" data-gfa="36000" data-retail="1230">c</div>
+                </div>
+
+                <div class="corridor pure-u-1 pure-u-md-5-6">
+                    <div class="target-site site-aa" data-target="aa" data-accepts-phys="a,c" data-accepts-fin="a,c"></div>
+                    <div class="target-site site-bb" data-target="bb" data-accepts-phys="a,b,c" data-accepts-fin="b"></div>
+                </div>
+
+                <div class="results pure-u-1 margin-top-2">
+                    <table>
+                        <tr>
+                            <th>Market Rate Units</th>
+                            <th>Affordable Units</th>
+                            <th>Total Gross Floor Area</th>
+                            <th>Supported Retail gfa</th>
+                        </tr>
+                        <tr id="results">
+                            <td id="market-rate">-</td>
+                            <td id="affordable">-</td>
+                            <td id="total-gfa"></td>
+                            <td id="retail-gfa"></td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script   src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"   integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="   crossorigin="anonymous"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
