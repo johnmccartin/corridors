@@ -90,6 +90,7 @@ $primary-light: #fff;
 $mid-tone: #666;
 $mid-light: #ddd;
 $highlight: #00A86B; //green!
+$red: #FF0000;
 $base-size: 16px;
 $reader-size: 1.25em;
 $mobile-break: 30em;
@@ -224,5 +225,17 @@ a:hover {
 
 .financial-alert {
   width: 20%;
-  color: red;
+  color: $red;
+}
+
+.physical-alert {
+  text-align: center;
+  color: $red;
+  background: $primary-light;
+  opacity: 0;
+  transition: opacity 300ms;
+
+  &.fade-in {
+    opacity: 1;
+  }
 }

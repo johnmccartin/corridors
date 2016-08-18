@@ -49,31 +49,31 @@ $(document).ready(function(){
 	});
 
 	$('.target-site').droppable({
-		drop: handleDropEvent
+		accept: '.bldg-type-orig',
+		drop: handleSiteDrop
 	});
 
-	function handleDropEvent(event, ui) {
+	function handleSiteDrop(event, ui) {
 		var $d = ui.draggable; //type
 		var $t = $(this); //target
-
 		var $dtype = $d.data('type');
 		var $target = $t.data('target');
 
 		var $accepts_phys = $t.data('accepts-phys').split(',');
 		var $accepts_fin = $t.data('accepts-fin').split(',');
-		console.log($accepts_phys);
-		console.log($accepts_fin);
-
 		
-		console.log($.inArray($dtype,$accepts_phys));
-		console.log($.inArray($dtype,$accepts_fin));
 		if( $.inArray($dtype,$accepts_phys) > -1 ) {
 			model.market_units += $d.data('mkt');
 			model.affordable_units += $d.data('aff');
-			model.total_gfa = $d.data('gfa');
-			model.retail_gfa = $d.data('retail');
+			model.total_gfa += $d.data('gfa');
+			model.retail_gfa += $d.data('retail');
 
-			$t.html($d.data('type'));
+			$t.append($d.clone().removeClass('bldg-type-orig').addClass('bldg-type-copy'));
+			$('.bldg-type-copy').draggable({
+				containment: '.container',
+				cursor: 'move',
+				stop: handleBldgRemove
+			});
 
 			updateResults();
 
@@ -82,11 +82,38 @@ $(document).ready(function(){
 			} else {
 				//alert('Finanical problems')
 				financialAlert( $dtype, $target );
-;			}
+			}
 
 		} else {
-			alert('Doesn\'t phyically accept.');
+			console.log('phyical alert');
+			var $p = $('.physical-alert');
+			$p.removeClass('bottom').addClass('top').addClass('fade-in');
+			setTimeout(
+				function() {
+					$p.removeClass('fade-in');
+				},2000
+			);
+			setTimeout(
+				function() {
+					$p.removeClass('top').addClass('bottom');
+				},2500
+			);
+
 		}
+	}
+
+	function handleBldgRemove(event,ui) {
+		var $d = ui.helper;
+
+		model.market_units -= $d.data('mkt');
+		model.affordable_units -= $d.data('aff');
+		model.total_gfa -= $d.data('gfa');
+		model.retail_gfa -= $d.data('retail');
+		
+		updateResults();
+		$(ui.helper).fadeOut(250,function(){remove()});
+	
+
 	}
 
 	function updateResults(){
@@ -98,7 +125,6 @@ $(document).ready(function(){
 
 	function financialAlert( type, target ){
 		var $f = $('.financial-alert');
-
 		$f.html('Financial Alert: Building type '+type+' will not generate enough revenue to cover the costs of site '+target+'.');
 	}
 

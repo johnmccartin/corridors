@@ -551,12 +551,12 @@ __   ____ _ _ __(_) __ _| |__ | | ___  ___
   z-index: -99999;
 }
 
-/* line 121, ../sass/main.scss */
+/* line 122, ../sass/main.scss */
 * {
   box-sizing: border-box;
 }
 
-/* line 125, ../sass/main.scss */
+/* line 126, ../sass/main.scss */
 html, body {
   height: 100%;
   width: 100%;
@@ -564,52 +564,52 @@ html, body {
   background: #fff;
 }
 
-/* line 132, ../sass/main.scss */
+/* line 133, ../sass/main.scss */
 html, button, input, select, textarea,
 .pure-g [class*="pure-u"] {
   font-family: "Roboto", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 100;
 }
 
-/* line 138, ../sass/main.scss */
+/* line 139, ../sass/main.scss */
 ::selection {
   background: #00A86B;
   color: #fff;
 }
 
-/* line 142, ../sass/main.scss */
+/* line 143, ../sass/main.scss */
 ::-moz-selection {
   background: #00A86B;
   color: #fff;
 }
 
-/* line 147, ../sass/main.scss */
+/* line 148, ../sass/main.scss */
 body {
   color: #00A86B;
 }
 
-/* line 150, ../sass/main.scss */
+/* line 151, ../sass/main.scss */
 a {
   color: #00A86B;
 }
 
-/* line 155, ../sass/main.scss */
+/* line 156, ../sass/main.scss */
 a:hover {
   background: #00A86B;
   color: #fff;
 }
 
-/* line 160, ../sass/main.scss */
+/* line 161, ../sass/main.scss */
 .link-on-dark {
   color: #fff;
 }
 
-/* line 164, ../sass/main.scss */
+/* line 165, ../sass/main.scss */
 .link-no-decor {
   text-decoration: none;
 }
 
-/* line 169, ../sass/main.scss */
+/* line 170, ../sass/main.scss */
 .pure-g > div {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -617,25 +617,25 @@ a:hover {
   box-sizing: border-box;
 }
 
-/* line 176, ../sass/main.scss */
+/* line 177, ../sass/main.scss */
 .inner {
   width: auto;
   padding: 1em;
 }
 
-/* line 183, ../sass/main.scss */
+/* line 184, ../sass/main.scss */
 .reader {
   width: 100%;
   max-width: 600px;
   font-size: 1.2em;
 }
 
-/* line 192, ../sass/main.scss */
+/* line 193, ../sass/main.scss */
 .development-options {
   background: #00A86B;
 }
 
-/* line 197, ../sass/main.scss */
+/* line 198, ../sass/main.scss */
 .bldg-type {
   width: 100px;
   height: 100px;
@@ -644,7 +644,7 @@ a:hover {
   font-size: 2em;
 }
 
-/* line 205, ../sass/main.scss */
+/* line 206, ../sass/main.scss */
 .target-site {
   width: 200px;
   height: 200px;
@@ -653,21 +653,34 @@ a:hover {
   font-size: 2em;
 }
 
-/* line 213, ../sass/main.scss */
+/* line 214, ../sass/main.scss */
 .results {
   width: 100%;
 }
-/* line 216, ../sass/main.scss */
+/* line 217, ../sass/main.scss */
 .results table {
   width: 100%;
 }
-/* line 219, ../sass/main.scss */
+/* line 220, ../sass/main.scss */
 .results table td {
   text-align: center;
 }
 
-/* line 225, ../sass/main.scss */
+/* line 226, ../sass/main.scss */
 .financial-alert {
   width: 20%;
-  color: red;
+  color: #FF0000;
+}
+
+/* line 231, ../sass/main.scss */
+.physical-alert {
+  text-align: center;
+  color: #FF0000;
+  background: #fff;
+  opacity: 0;
+  transition: opacity 300ms;
+}
+/* line 238, ../sass/main.scss */
+.physical-alert.fade-in {
+  opacity: 1;
 }

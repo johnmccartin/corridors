@@ -10,7 +10,8 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
 
-        <!--<link rel="stylesheet" href="css/normalize.css">-->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
         <!--[if lte IE 8]>
             <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
@@ -29,17 +30,21 @@
         <!-- Add your site or application content here -->
         <div class="layout stretch-all">
 
+            <div class="physical-alert stretch-all bottom">
+                <h1 class="margin-4">Sorry, can't fit that building on that site!</h1>
+            </div>
+
             <div class="financial-alert pull-up pull-right margin-1">
             </div>
 
             <div class="container stretch-all pure-g">
             
                 <div class="development-options pure-u-1 pure-u-md-1-6">
-                    <div class="bldg-type type-a" data-type="a" data-mkt="13" data-aff="2" data-gfa="12000" data-retail="450">a</div>
+                    <div class="bldg-type bldg-type-orig type-a" data-type="a" data-mkt="13" data-aff="2" data-gfa="12000" data-retail="450">a</div>
 
-                    <div class="bldg-type type-b" data-type="b" data-mkt="85" data-aff="15" data-gfa="105000" data-retail="3000">b</div>
+                    <div class="bldg-type bldg-type-orig type-b" data-type="b" data-mkt="85" data-aff="15" data-gfa="105000" data-retail="3000">b</div>
 
-                    <div class="bldg-type type-c" data-type="c" data-mkt="35" data-aff="6" data-gfa="36000" data-retail="1230">c</div>
+                    <div class="bldg-type bldg-type-orig type-c" data-type="c" data-mkt="35" data-aff="6" data-gfa="36000" data-retail="1230">c</div>
                 </div>
 
                 <div class="corridor pure-u-1 pure-u-md-5-6">
@@ -53,7 +58,7 @@
                             <th>Market Rate Units</th>
                             <th>Affordable Units</th>
                             <th>Total Gross Floor Area</th>
-                            <th>Supported Retail gfa</th>
+                            <th>Supported Retail Area</th>
                         </tr>
                         <tr id="results">
                             <td id="market-rate">-</td>
