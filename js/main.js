@@ -59,14 +59,19 @@ $(document).ready(function(){
 		var $dtype = $d.data('type');
 		var $target = $t.data('target');
 
+
 		var $accepts_phys = $t.data('accepts-phys').split(',');
 		var $accepts_fin = $t.data('accepts-fin').split(',');
 		
 		if( $.inArray($dtype,$accepts_phys) > -1 ) {
+
 			model.market_units += $d.data('mkt');
 			model.affordable_units += $d.data('aff');
 			model.total_gfa += $d.data('gfa');
 			model.retail_gfa += $d.data('retail');
+			console.log($t.data('bound'));
+
+			$t.attr('data-bound',$dtype);
 
 			$t.append($d.clone().removeClass('bldg-type-orig').addClass('bldg-type-copy'));
 			$('.bldg-type-copy').draggable({
@@ -104,14 +109,19 @@ $(document).ready(function(){
 
 	function handleBldgRemove(event,ui) {
 		var $d = ui.helper;
+		var $dtype = $d[0]['attributes']['data-type']['nodeValue'];
+
+		var $t = $(".target-site[data-bound='"+$dtype+"']");
+		
 
 		model.market_units -= $d.data('mkt');
 		model.affordable_units -= $d.data('aff');
 		model.total_gfa -= $d.data('gfa');
 		model.retail_gfa -= $d.data('retail');
+		$t.attr('data-bound','x');
 		
 		updateResults();
-		$(ui.helper).fadeOut(250,function(){remove()});
+		$(ui.helper).fadeOut(250,function(){$(this).remove()});
 	
 
 	}
